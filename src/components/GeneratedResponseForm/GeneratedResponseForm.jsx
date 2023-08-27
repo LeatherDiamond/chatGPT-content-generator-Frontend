@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Layout from '../Layout/Layout';
 
 function GeneratedResponseForm() {
   const [userInput, setUserInput] = useState('');
@@ -19,13 +20,14 @@ function GeneratedResponseForm() {
       });
 
       const fileAbsolutePath = response.data.file_path;
-      // Здесь можно обработать файл, например, показать его пользователю.
+
     } catch (error) {
       console.error('Ошибка при создании генерированного ответа:', error);
     }
   };
 
   return (
+    <Layout>
     <div>
       <h2>Создать генерированный ответ</h2>
       <form onSubmit={handleSubmit}>
@@ -37,6 +39,7 @@ function GeneratedResponseForm() {
         <button type="submit">Создать ответ</button>
       </form>
     </div>
+    </Layout>
   );
 }
 
