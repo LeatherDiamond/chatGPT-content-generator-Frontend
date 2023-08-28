@@ -30,9 +30,9 @@ function Layout({ children }) {
           </div>
         </main>
 
-        <footer class="footer mt-auto py-3 bg-body-tertiary">
-        <div class="container">
-          <span class="text-body-secondary">&copy; 2023 LeatherDiamond</span>
+        <footer className="footer mt-auto py-3 bg-body-tertiary">
+        <div className="container">
+          <span className="text-body-secondary">&copy; 2023 LeatherDiamond</span>
         </div>
       </footer>
       </div>

@@ -61,7 +61,7 @@ function GeneratedImageForm() {
             />
             <label htmlFor="image-description">Image Description</label> {}
           </div>
-          <button type="submit" disabled={isLoading} className="btn btn-primary mt-2">
+          <button type="submit" disabled={isLoading || description.trim() === ''} className="btn btn-primary mt-2">
             {isLoading ? 'Generating...' : 'Generate Image'}
           </button>
         </form>
