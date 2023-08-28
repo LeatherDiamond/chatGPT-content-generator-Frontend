@@ -3,6 +3,7 @@ import axios from 'axios';
 import Layout from '../Layout/Layout';
 import Lottie from 'react-lottie';
 import brushAnimationData from './brush_animation.json'
+import robotImage from './robot.png'
 
 function GeneratedImageForm() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -71,23 +72,26 @@ function GeneratedImageForm() {
               </div>
             </div>
           ) : null}
-        {!isLoading && imageSrc && (
-          <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ width: '30%', marginRight: '40px' }}>
-              <a href={imageSrc} target="_blank" rel="noopener noreferrer">
-                <img src={imageSrc} alt="Generated image" style={{ width: '100%', cursor: 'pointer', border: '1px solid #ddd' }} />
-              </a>
-            </div>
-            {showText && (
-              <div className="chat-bubble">
-                <span className="typed-text">{typedText}</span>
+          {!isLoading && fileDownloadUrl && (
+            <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+              <div style={{ width: '30%', marginRight: '40px' }}>
+                <a href={imageSrc} target="_blank" rel="noopener noreferrer">
+                  <img src={imageSrc} alt="Generated image" style={{ width: '100%', cursor: 'pointer', border: '3px solid #ddd' }} />
+                </a>
               </div>
-            )}
-          </div>
-        )}
+              {showText && (
+                <div className="chat-bubble">
+                  <span className="typed-text">{typedText}</span>
+                </div>
+              )}
+              <div style={{ width: '12%', height: '140px', marginLeft: '-30px', marginTop: '30px', position: 'relative' }}>
+                <img src={robotImage} alt="Robot" style={{ width: '100%' }} />
+              </div>
+            </div>
+          )}
         {!isLoading && fileDownloadUrl && (
-          <div>
-            <p>Download the image: <a href={fileDownloadUrl} download>Download</a></p>
+          <div style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px'}}>
+            <a href={fileDownloadUrl} download className="btn btn-primary">Download the image</a>
           </div>
         )}
       </div>
