@@ -6,7 +6,7 @@ function Layout({ children }) {
         <header>
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div className="container-fluid">
-              <a className="navbar-brand" href="/">WAWBOOKS</a><br />
+              <a className="navbar-brand" href="/"><img src="logo-image.png" alt="Logo" className='logo-image'/></a><br />
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -30,13 +30,11 @@ function Layout({ children }) {
           </div>
         </main>
 
-        <footer className="py-3 my-4">
-          <div className="shadow p-3 mb-5 bg-body rounded">
-            <div className="container">
-              <p className="text-center text-muted">&copy; 2023 LeatherDiamond</p>
-            </div>
-          </div>
-        </footer>
+        <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+          <span class="text-body-secondary">&copy; 2023 LeatherDiamond</span>
+        </div>
+      </footer>
       </div>
   );
 }

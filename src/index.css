@@ -41,3 +41,16 @@ code {
 .typed-text {
   white-space: pre-line;
 }
+
+.logo-image {
+  width: 40px;
+  height: 35px;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
