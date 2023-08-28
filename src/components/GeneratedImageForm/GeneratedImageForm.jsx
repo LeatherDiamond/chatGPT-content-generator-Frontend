@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
-import { DisappearedLoading } from 'react-loadingg';
+import Lottie from 'react-lottie';
+import brushAnimationData from './brush_animation.json'
 
 function GeneratedImageForm() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -11,7 +12,6 @@ function GeneratedImageForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [showText, setShowText] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const [showAiAnswering, setShowAiAnswering] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +31,6 @@ function GeneratedImageForm() {
     setTimeout(() => {
       setIsLoading(false);
       setShowText(true);
-      setShowAiAnswering(true);
     }, 1000);
   };
 
@@ -66,10 +65,12 @@ function GeneratedImageForm() {
           </button>
         </form>
         {isLoading ? (
-          <div className="loading-animation">
-            <DisappearedLoading />
-          </div>
-        ) : null}
+            <div className="loading-animation">
+              <div className="lottie-animation">
+                <Lottie options={{ animationData: brushAnimationData, loop: true, autoplay: true }} width={200} height={200} />
+              </div>
+            </div>
+          ) : null}
         {!isLoading && imageSrc && (
           <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
             <div style={{ width: '30%', marginRight: '40px' }}>

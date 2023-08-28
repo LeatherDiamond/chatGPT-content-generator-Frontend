@@ -1,0 +1,9 @@
+.loading-animation {
+    position: relative;
+    text-align: center;
+    font-size: small;
+}
+
+.loading-animation .lottie-animation {
+    display: inline-block;
+}
