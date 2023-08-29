@@ -12,12 +12,6 @@ code {
     monospace;
 }
 
-.start-page {
-  height: 100vh;
-  background-color: #343a40;
-  color: white;
-}
-
 .image-form, .response-form {
   margin: 2rem auto;
   max-width: auto;
