@@ -91,7 +91,7 @@ function GeneratedImageForm() {
           )}
         {!isLoading && fileDownloadUrl && (
           <div style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px'}}>
-            <a href={fileDownloadUrl} download className="btn btn-primary">Download the image</a>
+            <a href={fileDownloadUrl} download className="btn btn-success">Download the image</a>
           </div>
         )}
       </div>
