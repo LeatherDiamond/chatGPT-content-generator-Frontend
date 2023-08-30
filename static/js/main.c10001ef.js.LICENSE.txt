@@ -72,5 +72,3 @@
  *
  * @license MIT
  */
-
-//! goToAndStop must be relative to the start of the current segment
