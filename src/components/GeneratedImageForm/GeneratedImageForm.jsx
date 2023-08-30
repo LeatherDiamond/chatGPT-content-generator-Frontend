@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import brushAnimationData from './brush_animation.json'
 import robotImage from './robot.png'
 
