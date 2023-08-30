@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
-import Lottie from 'lottie-react';
+import Lottie from 'react-lottie';
 import animationData from './pencil_animation.json';
 import RobotPointing from './robot-pointing.avif';
 import RobotImage from '../GeneratedImageForm/robot.png';
