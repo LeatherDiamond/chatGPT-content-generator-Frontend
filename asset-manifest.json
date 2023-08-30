@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.cdff2477.css",
-    "main.js": "/static/js/main.c5868de6.js",
-    "static/media/robot.png": "/static/media/robot.447a3720d37b996bac8f.png",
-    "static/media/robot-pointing.avif": "/static/media/robot-pointing.a7bb3a1a28a80111e6b8.avif",
-    "index.html": "/index.html",
-    "main.cdff2477.css.map": "/static/css/main.cdff2477.css.map",
-    "main.c5868de6.js.map": "/static/js/main.c5868de6.js.map"
+    "main.css": "/chatGPT-content-generator-Frontend/static/css/main.cdff2477.css",
+    "main.js": "/chatGPT-content-generator-Frontend/static/js/main.af2f5fa5.js",
+    "static/media/robot.png": "/chatGPT-content-generator-Frontend/static/media/robot.447a3720d37b996bac8f.png",
+    "static/media/robot-pointing.avif": "/chatGPT-content-generator-Frontend/static/media/robot-pointing.a7bb3a1a28a80111e6b8.avif",
+    "index.html": "/chatGPT-content-generator-Frontend/index.html",
+    "main.cdff2477.css.map": "/chatGPT-content-generator-Frontend/static/css/main.cdff2477.css.map",
+    "main.af2f5fa5.js.map": "/chatGPT-content-generator-Frontend/static/js/main.af2f5fa5.js.map"
   },
   "entrypoints": [
     "static/css/main.cdff2477.css",
-    "static/js/main.c5868de6.js"
+    "static/js/main.af2f5fa5.js"
   ]
 }
