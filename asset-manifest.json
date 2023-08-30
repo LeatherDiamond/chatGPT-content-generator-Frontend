@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/chatGPT-content-generator-Frontend/static/css/main.cdff2477.css",
+    "main.js": "/chatGPT-content-generator-Frontend/static/js/main.b1d01aec.js",
+    "static/media/robot.png": "/chatGPT-content-generator-Frontend/static/media/robot.447a3720d37b996bac8f.png",
+    "static/media/robot-pointing.avif": "/chatGPT-content-generator-Frontend/static/media/robot-pointing.a7bb3a1a28a80111e6b8.avif",
+    "index.html": "/chatGPT-content-generator-Frontend/index.html",
+    "main.cdff2477.css.map": "/chatGPT-content-generator-Frontend/static/css/main.cdff2477.css.map",
+    "main.b1d01aec.js.map": "/chatGPT-content-generator-Frontend/static/js/main.b1d01aec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cdff2477.css",
+    "static/js/main.b1d01aec.js"
+  ]
+}
