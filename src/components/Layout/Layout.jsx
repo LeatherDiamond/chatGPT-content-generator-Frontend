@@ -13,10 +13,10 @@ function Layout({ children }) {
               <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav me-auto mb-2 mb-md-0">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/generate-response">Text generation</a>
+                    <a className="nav-link active" aria-current="page" href="/#/generate-response">Text generation</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active" href="/generate-image">Image generation</a>
+                    <a className="nav-link active" href="/#/generate-image">Image generation</a>
                   </li>
                 </ul>
               </div>
