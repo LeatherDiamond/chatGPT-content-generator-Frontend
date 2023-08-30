@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
   return (
@@ -6,17 +7,17 @@ function Layout({ children }) {
         <header>
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div className="container-fluid">
-              <a className="navbar-brand" href="/"><img src="logo-image.png" alt="Logo" className='logo-image'/></a><br />
+              <Link className="navbar-brand" to="/"><img src="logo-image.png" alt="Logo" className='logo-image'/></Link><br />
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav me-auto mb-2 mb-md-0">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/generate-response">Text generation</a>
+                    <Link className="nav-link active" aria-current="page" to="/generate-response">Text generation</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active" href="/generate-image">Image generation</a>
+                    <Link className="nav-link active" to="/generate-image">Image generation</Link>
                   </li>
                 </ul>
               </div>
