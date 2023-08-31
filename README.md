@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Navigation
+* ***[Description](#description)***
+* ***[How to start?](#how-to-start)***
+* ***[Backend](#backend)***
+* ***[Why should you try it?](#why-should-you-try-it)***
+* ***[License](#license)***
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description
 
-## Available Scripts
+This repository constitutes the frontend component of the project solution, complementing the functionality provided by the [backend solution](https://github.com/LeatherDiamond/chatGPT-content-generator). It is dedicated to delivering an exceptional user experience through a dynamic and responsive interface built using React.
 
-In the project directory, you can run:
+The backend is hosted on "PythonAnywhere," while the frontend resides on GitHub Pages. The deployed version of the project is accessible through the following **[link](https://leatherdiamond.github.io/chatGPT-content-generator-Frontend/)**. This link allows you to explore all the functionalities of the project, as the frontend seamlessly communicates with the backend through APIs.
 
-### `npm start`
+Discover the harmonious synergy between the frontend and backend components, designed to elevate your creative projects to new heights.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# How to start?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The frontend seamlessly communicates with the backend, which serves as the backbone of the project solution. The backend facilitates the generation of compelling titles, agendas, and well-organized content. Additionally, it retrieves images that align with the project's conceptual requirements. The frontend leverages these backend features to provide users with a robust content ideation and image generation platform. Explore more details of the backend solution by the following [link](https://github.com/LeatherDiamond/chatGPT-content-generator).
 
-### `npm run build`
+# Why should you try it?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. ***Effortless Content Ideation:*** With the project, generating content ideas becomes a breeze. It assists in brainstorming by automatically generating titles and agendas that serve as starting points for your creative projects.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. ***Structured Content Creation:*** The project streamlines the content creation process by suggesting titles and agendas, while also recording generated paragraphs in a structured manner. This guarantees your final output is organized and coherent.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. ***Time-Saving:*** Save hours by automating brainstorming, outlining, and content saving. The project significantly reduces the time invested in content preparation while maintaining high quality.
 
-### `npm run eject`
+4. ***Diverse Applications:*** Suited for writers, presenters, and content creators, the project caters to various needs. It's perfect for generating blog post ideas, crafting presentation outlines, or creating engaging snippets for social media.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. ***Harnessing GPT-3.5:*** Leveraging GPT-3.5's language capabilities, the project produces human-like text adapted to your context. Content is aligned with your intended style and tone, adding authenticity to your work.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. ***Customizability:*** Easily modify parameters such as the number of titles and items in agendas, length of paragraphs to match your preferences. This customization empowers you to fine-tune generated content to fit your project perfectly.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. ***Image Generation:*** Take your creativity further with the ability to generate images based on your queries. The project fetches visuals that align with your ideas and saves them to the root directory, adding a visual dimension to your content.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Experience the convenience, efficiency, and accessibility of automated content generation. Try out the project and witness how it transforms your content creation workflow. Bid farewell to writer's block and welcome an endless stream of ideas, structured content, and visuals, all neatly saved in separate files alongside your project and always available for downloading from your browser.
