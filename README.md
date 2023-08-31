@@ -15,6 +15,38 @@ Discover the harmonious synergy between the frontend and backend components, des
 
 # How to start?
 
+> Make sure that [node.js](https://nodejs.org/en) is intalled on your machine. 
+
+**1. Clone current repository on your local machine:**
+```
+git clone https://github.com/LeatherDiamond/chatGPT-content-generator-Frontend.git
+```
+
+**2. Configure mandatory data:**
+
+Create `.env` file in the root derictory and provide REACT_APP_API_URL variable value.
+> Note that it should be backend URL. For local project functionality it can be `http://localhost:8000`
+
+**3. Install all the dependencies:**
+
+Navigate to the root directory of the cloned project and run the following commands
+```
+config set legacy-peer-deps true
+npm install
+```
+or use 
+```
+npm install --legacy-peer-deps
+```
+
+**4. Run the project**
+```
+npm start
+```
+> ###### NOTE:
+> Make sure that [Backend](https://github.com/LeatherDiamond/chatGPT-content-generator) part is launched on your machine and also configured correctly to provide communication between Backend and Frontend.
+
+After completing all the steps, the project will be launched and available at http://localhost:3000/
 
 # Backend
 
@@ -37,3 +69,7 @@ The frontend seamlessly communicates with the backend, which serves as the backb
 7. ***Image Generation:*** Take your creativity further with the ability to generate images based on your queries. The project fetches visuals that align with your ideas and saves them to the root directory, adding a visual dimension to your content.
 
 Experience the convenience, efficiency, and accessibility of automated content generation. Try out the project and witness how it transforms your content creation workflow. Bid farewell to writer's block and welcome an endless stream of ideas, structured content, and visuals, all neatly saved in separate files alongside your project and always available for downloading from your browser.
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/LeatherDiamond/chatGPT-content-generator-Frontend/blob/main/LICENSE) file for details.
