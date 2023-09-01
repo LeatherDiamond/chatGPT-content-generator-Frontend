@@ -5,9 +5,11 @@ import Lottie from 'react-lottie';
 import animationData from './pencil_animation.json';
 import RobotPointing from './robot-pointing.avif';
 import RobotImage from '../GeneratedImageForm/robot.png';
+import errorAnimation from '../Layout/animation_error.json';
 
 function GeneratedResponseForm() {
   const apiUrl = process.env.REACT_APP_API_URL;
+  const [error, setError] = useState(null);
   const [userInput, setUserInput] = useState('');
   const [numTitles, setNumTitles] = useState(5);
   const [numAgendas, setNumAgendas] = useState(5);
@@ -80,6 +82,7 @@ function GeneratedResponseForm() {
       setFileDownloadUrl(fileUrl);
     } catch (error) {
       console.error('Error while generating a response:', error);
+      setError(true);
     } finally {
       setIsLoading(false);
     }
@@ -87,7 +90,7 @@ function GeneratedResponseForm() {
 
   return (
     <Layout>
-      <div className="image-form">
+      <div className={`image-form ${error ? 'error-mode' : ''}`}>
         <h2 style={{ marginBottom: '20px' }}>Generate a text according to your requirements:</h2>
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="form-floating mb-3">
@@ -188,6 +191,13 @@ function GeneratedResponseForm() {
           </div>
         )}
       </div>
+      {error ? (
+          <div className="error-animation">
+            <div className="lottie-animation">
+              <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
+            </div>
+          </div>
+        ) : null}
     </Layout>
   );
 }

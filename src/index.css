@@ -58,3 +58,14 @@ code {
 .loading-animation .lottie-animation {
   display: inline-block;
 }
+
+.image-form.error-mode {
+  display: none;
+}
+
+.error-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

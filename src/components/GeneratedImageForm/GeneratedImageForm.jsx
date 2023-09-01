@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
 import Lottie from 'react-lottie';
-import brushAnimationData from './brush_animation.json'
-import robotImage from './robot.png'
+import brushAnimationData from './brush_animation.json';
+import robotImage from './robot.png';
+import errorAnimation from '../Layout/animation_error.json';
 
 function GeneratedImageForm() {
   const apiUrl = process.env.REACT_APP_API_URL;
+  const [error, setError] = useState(null);
   const [description, setDescription] = useState('');
   const [fileDownloadUrl, setFileDownloadUrl] = useState('');
   const [imageSrc, setImageSrc] = useState('');
@@ -27,6 +29,7 @@ function GeneratedImageForm() {
       setFileDownloadUrl(imageUrl);
     } catch (error) {
       console.error('Error when generating an image:', error);
+      setError(true);
     }
 
     setTimeout(() => {
@@ -46,7 +49,7 @@ function GeneratedImageForm() {
 
   return (
     <Layout>
-      <div className="image-form">
+      <div className={`image-form ${error ? 'error-mode' : ''}`}>
         <h2 style={{ marginBottom: '20px' }}>Generate an image for your needs:</h2>
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="form-floating">
@@ -95,6 +98,13 @@ function GeneratedImageForm() {
           </div>
         )}
       </div>
+      {error ? (
+          <div className="error-animation">
+            <div className="lottie-animation">
+              <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
+            </div>
+          </div>
+        ) : null}
     </Layout>
   );
 }
