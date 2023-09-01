@@ -88,7 +88,9 @@ function GeneratedResponseForm() {
       setError(true);
       setIsLoading(false);
       setIsAnimation(false);
-      return;
+    } finally {
+      setIsLoading(false);
+      setIsAnimation(false);
     }
   };
 
