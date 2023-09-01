@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/chatGPT-content-generator-Frontend/static/css/main.13687845.css",
-    "main.js": "/chatGPT-content-generator-Frontend/static/js/main.165c2c0a.js",
+    "main.js": "/chatGPT-content-generator-Frontend/static/js/main.e809a757.js",
     "static/media/robot.png": "/chatGPT-content-generator-Frontend/static/media/robot.447a3720d37b996bac8f.png",
     "static/media/robot-pointing.avif": "/chatGPT-content-generator-Frontend/static/media/robot-pointing.a7bb3a1a28a80111e6b8.avif",
     "index.html": "/chatGPT-content-generator-Frontend/index.html",
     "main.13687845.css.map": "/chatGPT-content-generator-Frontend/static/css/main.13687845.css.map",
-    "main.165c2c0a.js.map": "/chatGPT-content-generator-Frontend/static/js/main.165c2c0a.js.map"
+    "main.e809a757.js.map": "/chatGPT-content-generator-Frontend/static/js/main.e809a757.js.map"
   },
   "entrypoints": [
     "static/css/main.13687845.css",
-    "static/js/main.165c2c0a.js"
+    "static/js/main.e809a757.js"
   ]
 }
