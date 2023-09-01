@@ -50,9 +50,10 @@ code {
 }
 
 .loading-animation {
-  position: relative;
-  text-align: center;
-  font-size: small;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .loading-animation .lottie-animation {
@@ -68,4 +69,27 @@ code {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.content-enter {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.content-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.content-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-exit-active {
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  pointer-events: none;
 }

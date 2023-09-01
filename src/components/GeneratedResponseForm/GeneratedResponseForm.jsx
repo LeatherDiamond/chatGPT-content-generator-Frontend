@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
 import Lottie from 'react-lottie';
+import { CSSTransition } from 'react-transition-group';
 import animationData from './pencil_animation.json';
 import RobotPointing from './robot-pointing.avif';
 import RobotImage from '../GeneratedImageForm/robot.png';
@@ -15,25 +16,22 @@ function GeneratedResponseForm() {
   const [numAgendas, setNumAgendas] = useState(5);
   const [numWords, setNumWords] = useState(250);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAnimation, setIsAnimation] = useState(false);
   const [isResponseGenerated, setIsResponseGenerated] = useState(false);
-
   const [showImage1, setShowImage1] = useState(true);
   const [showImage2, setShowImage2] = useState(false);
-
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
-
   const [typedText, setTypedText] = useState('');
   const [typedNewText, setTypedNewText] = useState('');
   const [showTypingAnimation, setShowTypingAnimation] = useState(false);
-
   const [fileDownloadUrl, setFileDownloadUrl] = useState('');
 
   useEffect(() => {
-    if (showText1 && typedText.length < "Choose special parameteres: Provide any topic and indicate quantity of titles for the chosen topic. Agenda will be generated for every title and you can choose quantity of items for agenda. A paragraph will be generated for every agenda and you can choose its prefered length in words.".length) {
+    if (showText1 && typedText.length < "Choose special parameters: Provide any topic and indicate the quantity of titles for the chosen topic. Agenda will be generated for every title and you can choose the quantity of items for the agenda. A paragraph will be generated for every agenda, and you can choose its preferred length in words.".length) {
       setShowTypingAnimation(true);
       const typingInterval = setInterval(() => {
-        setTypedText((prevText) => prevText + "Choose special parameteres: Provide any topic and indicate quantity of titles for the chosen topic. Agenda will be generated for every title and you can choose quantity of items for agenda. A paragraph will be generated for every agenda and you can choose its prefered length in words."[prevText.length]);
+        setTypedText((prevText) => prevText + "Choose special parameters: Provide any topic and indicate the quantity of titles for the chosen topic. Agenda will be generated for every title and you can choose the quantity of items for the agenda. A paragraph will be generated for every agenda, and you can choose its preferred length in words."[prevText.length]);
       }, 50);
       return () => {
         clearInterval(typingInterval);
@@ -43,10 +41,10 @@ function GeneratedResponseForm() {
   }, [showText1, typedText]);
 
   useEffect(() => {
-    if (showText2 && typedNewText.length < "Download generated file. If the result doesn't suit you, just ask me once again and I will do my best to make you happy.".length) {
+    if (showText2 && typedNewText.length < "Download the generated file. If the result doesn't suit you, just ask me once again, and I will do my best to make you happy.".length) {
       setShowTypingAnimation(true);
       const typingInterval = setInterval(() => {
-        setTypedNewText((prevText) => prevText + "Download generated file. If the result doesn't suit you, just ask me once again and I will do my best to make you happy."[prevText.length]);
+        setTypedNewText((prevText) => prevText + "Download the generated file. If the result doesn't suit you, just ask me once again, and I will do my best to make you happy."[prevText.length]);
       }, 50);
       return () => {
         clearInterval(typingInterval);
@@ -62,6 +60,10 @@ function GeneratedResponseForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    
+    setTimeout(() => {
+      setIsAnimation(true);
+    }, 500);
 
     try {
       const response = await axios.post(`${apiUrl}/response/generated-responses/`, {
@@ -85,90 +87,85 @@ function GeneratedResponseForm() {
       setError(true);
     } finally {
       setIsLoading(false);
+      setIsAnimation(false);
     }
   };
 
   return (
     <Layout>
-      <div className={`image-form ${error ? 'error-mode' : ''}`}>
-        <h2 style={{ marginBottom: '20px' }}>Generate a text according to your requirements:</h2>
-        <form onSubmit={handleSubmit} className="mb-4">
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              className="form-control"
-              id="userInput"
-              placeholder="Enter the topic"
-            />
-            <label htmlFor="userInput">Enter the topic</label>
-          </div>
-          <div className="row mb-3">
-            <div className="col">
-              <div className="form-floating">
-                <input
-                  type="number"
-                  value={numTitles}
-                  onChange={(e) => setNumTitles(e.target.value)}
-                  className="form-control"
-                  id="numTitles"
-                  placeholder="Indicate quantity of titles"
-                />
-                <label htmlFor="numTitles">Quantity of titles</label>
+      <CSSTransition in={!isLoading} timeout={500} classNames="content" unmountOnExit>
+        <div className={`image-form ${error ? 'error-mode' : ''}`}>
+          <h2 style={{ marginBottom: '20px' }}>Generate a text according to your requirements:</h2>
+          <form onSubmit={handleSubmit} className="mb-4">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                className="form-control"
+                id="userInput"
+                placeholder="Enter the topic"
+              />
+              <label htmlFor="userInput">Enter the topic</label>
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <div className="form-floating">
+                  <input
+                    type="number"
+                    value={numTitles}
+                    onChange={(e) => setNumTitles(e.target.value)}
+                    className="form-control"
+                    id="numTitles"
+                    placeholder="Indicate quantity of titles"
+                  />
+                  <label htmlFor="numTitles">Quantity of titles</label>
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-floating">
+                  <input
+                    type="number"
+                    value={numAgendas}
+                    onChange={(e) => setNumAgendas(e.target.value)}
+                    className="form-control"
+                    id="numAgendas"
+                    placeholder="Indicate quantity of items in agenda for every title"
+                  />
+                  <label htmlFor="numAgendas">Quantity of items in agenda for title</label>
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-floating">
+                  <input
+                    type="number"
+                    value={numWords}
+                    onChange={(e) => setNumWords(e.target.value)}
+                    className="form-control"
+                    id="numWords"
+                    placeholder="Indicate preferred length of paragraph in words"
+                  />
+                  <label htmlFor="numWords">Length of paragraph in words</label>
+                </div>
               </div>
             </div>
-            <div className="col">
-              <div className="form-floating">
-                <input
-                  type="number"
-                  value={numAgendas}
-                  onChange={(e) => setNumAgendas(e.target.value)}
-                  className="form-control"
-                  id="numAgendas"
-                  placeholder="Indicate quantity of items in agenda for every title"
-                />
-                <label htmlFor="numAgendas">Quantity of items in agenda for title</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-floating">
-                <input
-                  type="number"
-                  value={numWords}
-                  onChange={(e) => setNumWords(e.target.value)}
-                  className="form-control"
-                  id="numWords"
-                  placeholder="Indicate preferred length of paragraph in words"
-                />
-                <label htmlFor="numWords">Length of paragraph in words</label>
-              </div>
-            </div>
-          </div>
-          <button type="submit" disabled={isLoading || userInput.trim() === ''} className="btn btn-primary mt-2">
-            {isLoading ? 'Generating...' : 'Generate response'}
-          </button>
-        </form>
-        {isLoading ? (
-          <div className="loading-animation">
-            <div className="lottie-animation">
-              <Lottie options={{ animationData: animationData, loop: true, autoplay: true }} width={200} height={200} />
-            </div>
-          </div>
-        ) : (
+            <button type="submit" disabled={isLoading || userInput.trim() === ''} className="btn btn-primary mt-2">
+              {isLoading ? 'Generating...' : 'Generate response'}
+            </button>
+          </form>
           <div>
             {showText1 && (
-              <div className="chat-bubble" style={{width: '82%'}}>
+              <div className="chat-bubble" style={{ width: '82%' }}>
                 <span className="typed-text">{typedText}</span>
               </div>
             )}
             {showText2 && (
-              <div className="chat-bubble" style={{width: '82%'}}>
+              <div className="chat-bubble" style={{ width: '82%' }}>
                 <span className="typed-text">{typedNewText}</span>
               </div>
             )}
             {showImage1 && (
-              <img 
+              <img
                 src={RobotPointing}
                 alt="Image 1"
                 style={{ width: '17%', height: '170px', marginLeft: '1000px', marginTop: '-30px', position: 'relative' }}
@@ -182,22 +179,29 @@ function GeneratedResponseForm() {
               />
             )}
             {isResponseGenerated && fileDownloadUrl && (
-              <div className="mt-3" style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px'}}>
+              <div className="mt-3" style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px' }}>
                 <a href={fileDownloadUrl} download className="btn btn-success">
                   Download Generated Response
                 </a>
               </div>
             )}
           </div>
-        )}
-      </div>
-      {error ? (
-          <div className="error-animation">
-            <div className="lottie-animation">
-              <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
-            </div>
+        </div>
+      </CSSTransition>
+      {error && (
+        <div className="error-animation">
+          <div className="lottie-animation">
+            <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
           </div>
-        ) : null}
+        </div>
+      )} 
+      {isAnimation ? (
+        <div className="loading-animation">
+          <div className="lottie-animation">
+            <Lottie options={{ animationData: animationData, loop: true, autoplay: true }} width={500} height={500} />
+          </div>
+        </div>
+      ) : null}
     </Layout>
   );
 }

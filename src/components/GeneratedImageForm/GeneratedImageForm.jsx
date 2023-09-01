@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
 import Lottie from 'react-lottie';
+import { CSSTransition } from 'react-transition-group';
 import brushAnimationData from './brush_animation.json';
 import robotImage from './robot.png';
 import errorAnimation from '../Layout/animation_error.json';
@@ -30,6 +31,8 @@ function GeneratedImageForm() {
     } catch (error) {
       console.error('Error when generating an image:', error);
       setError(true);
+      setIsLoading(false);
+      return;
     }
 
     setTimeout(() => {
@@ -49,33 +52,27 @@ function GeneratedImageForm() {
 
   return (
     <Layout>
-      <div className={`image-form ${error ? 'error-mode' : ''}`}>
-        <h2 style={{ marginBottom: '20px' }}>Generate an image for your needs:</h2>
-        <form onSubmit={handleSubmit} className="mb-4">
-          <div className="form-floating">
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="form-control"
-              placeholder="Enter image description"
-              id="image-description"
-              name="image-description"
-            />
-            <label htmlFor="image-description">Image Description</label> {}
-          </div>
-          <button type="submit" disabled={isLoading || description.trim() === ''} className="btn btn-primary mt-2">
-            {isLoading ? 'Generating...' : 'Generate Image'}
-          </button>
-        </form>
-        {isLoading ? (
-            <div className="loading-animation">
-              <div className="lottie-animation">
-                <Lottie options={{ animationData: brushAnimationData, loop: true, autoplay: true }} width={200} height={200} />
-              </div>
+      <CSSTransition in={!isLoading} timeout={500} classNames="content" unmountOnExit>
+        <div className={`image-form ${error ? 'error-mode' : ''}`}>
+          <h2 style={{ marginBottom: '20px' }}>Generate an image for your needs:</h2>
+          <form onSubmit={handleSubmit} className="mb-4">
+            <div className="form-floating">
+              <input
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="form-control"
+                placeholder="Enter image description"
+                id="image-description"
+                name="image-description"
+              />
+              <label htmlFor="image-description">Image Description</label> {}
             </div>
-          ) : null}
-          {!isLoading && fileDownloadUrl && (
+            <button type="submit" disabled={isLoading || description.trim() === ''} className="btn btn-primary mt-2">
+              {isLoading ? 'Generating...' : 'Generate Image'}
+            </button>
+          </form>
+          <CSSTransition in={!isLoading && fileDownloadUrl} timeout={500} classNames="content" unmountOnExit>
             <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
               <div style={{ width: '30%', marginRight: '40px' }}>
                 <a href={imageSrc} target="_blank" rel="noopener noreferrer">
@@ -91,20 +88,28 @@ function GeneratedImageForm() {
                 <img src={robotImage} alt="Robot" style={{ width: '100%' }} />
               </div>
             </div>
-          )}
-        {!isLoading && fileDownloadUrl && (
-          <div style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px'}}>
-            <a href={fileDownloadUrl} download className="btn btn-success">Download the image</a>
-          </div>
-        )}
-      </div>
-      {error ? (
-          <div className="error-animation">
-            <div className="lottie-animation">
-              <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
+          </CSSTransition>
+          <CSSTransition in={!isLoading && fileDownloadUrl} timeout={500} classNames="content" unmountOnExit>
+            <div style={{ display: 'flex', justifyContent: 'right', position: 'relative', marginTop: '-40px'}}>
+              <a href={fileDownloadUrl} download className="btn btn-success">Download the image</a>
             </div>
+          </CSSTransition>
+        </div>
+      </CSSTransition>
+      {error && (
+        <div className="error-animation">
+          <div className="lottie-animation">
+            <Lottie options={{ animationData: errorAnimation, loop: true, autoplay: true }} width={700} height={700} />
           </div>
-        ) : null}
+        </div>
+      )} 
+      {isLoading ? (
+        <div className="loading-animation">
+          <div className="lottie-animation">
+            <Lottie options={{ animationData: brushAnimationData, loop: true, autoplay: true }} width={300} height={300} />
+          </div>
+        </div>
+      ) : null}
     </Layout>
   );
 }
