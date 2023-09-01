@@ -30,6 +30,7 @@ function GeneratedImageForm() {
       setFileDownloadUrl(imageUrl);
     } catch (error) {
       console.error('Error when generating an image:', error);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setError(true);
       setIsLoading(false);
       return;

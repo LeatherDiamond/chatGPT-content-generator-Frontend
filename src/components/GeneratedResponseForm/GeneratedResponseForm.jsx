@@ -84,10 +84,11 @@ function GeneratedResponseForm() {
       setFileDownloadUrl(fileUrl);
     } catch (error) {
       console.error('Error while generating a response:', error);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setError(true);
-    } finally {
       setIsLoading(false);
       setIsAnimation(false);
+      return;
     }
   };
 
